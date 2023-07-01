@@ -1,15 +1,13 @@
+import pandas as pd
 import tensorflow as tf
 from tensorflo.keras.models import load_models
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensoeflow.keras.preprocessing.sequences import pad_sequences
 
-import pandas as pd
-
 input_sequences = ''
 one_hot_labels = ''
 max_length = ''
 vocab_size = ''
-
 
 def load_data1():
     paths=['C:/Users/arvin/OneDrive/Desktop/data/target.txt', 'C:/Users/arvin/OneDrive/Desktop/data/input.txt']; data=[]
@@ -50,7 +48,6 @@ def create_sequence():
     one_hot_labels = tf.convert_to_tensor(one_hot_labels, dtype=tf.int64)
     return tokenizer
 
-
 def create_model(vocab_size, max_length):
     model = tf.keras.Sequential([
         tf.keras.layers.Embedding(vocab_size, 64, input_length=max_length - 1),
@@ -64,7 +61,6 @@ def create_model(vocab_size, max_length):
         loss = 'categorical_crossentropy',
         metrics = ['accuracy']
     )
-
     return model
 
 def train(model, epochs, input_sequences, one_hot_labels):
