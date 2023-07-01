@@ -1,4 +1,4 @@
-import model_eva
+#import model_eva
 from tensorflow.keras.models import load_model
 
 import speech_recognition as sr
@@ -8,7 +8,7 @@ from playsound import playsound
 import time
 import os
 import sys
-import threading
+#import threading
 
 class Bot:
     def __init__(self, user, accent):
